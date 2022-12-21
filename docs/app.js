@@ -136,7 +136,7 @@ exports.template = [
         {
         id: 'path4103-7-5-3-2',
         d: 'm 444.94612,494.29133 15.34297,8.85825 15.34297,-8.85825 -15.34297,-8.85827 z',
-        style: 'fill:#ff0000;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
+        style: 'fill:#0000ff;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
         }
     ],
     [
@@ -144,7 +144,7 @@ exports.template = [
         {
         id: 'path4143-3-6-5-6',
         d: 'm 444.94612,512.00786 0,-17.71653 15.34297,8.85825 0,17.71654 z',
-        style: 'fill:#ff0000;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
+        style: 'fill:#0000ff;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
         }
     ],
     [
@@ -152,7 +152,7 @@ exports.template = [
         {
         id: 'path4145-7-5-4-5',
         d: 'm 460.28909,520.86612 15.34297,-8.85826 0,-17.71653 -15.34297,8.85825 z',
-        style: 'fill:#ff0000;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
+        style: 'fill:#0000ff;fill-opacity:0.5;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1'
         }
     ]
     ],
@@ -376,30 +376,12 @@ exports.template = [
     ]
 ];
 exports.moves = {
-    E: [
-    107.40078,
-    62.00788
-    ],
-    N: [
-    107.40078999999997,
-    -62.00787
-    ],
-    U: [
-    0,
-    -124.01574
-    ],
-    W: [
-    -107.400788,
-    -62.00787
-    ],
-    S: [
-    -107.400788,
-    62.00788
-    ],
-    D: [
-    0,
-    106.29921
-    ]
+    E: [107.40078, 62.00788],
+    N: [107.40078999999997, -62.00787],
+    U: [0, -124.01574],
+    W: [-107.400788, -62.00787],
+    S: [-107.400788, 62.00788],
+    D: [0, 106.29921]
 };
 
 },{}],2:[function(require,module,exports){
