@@ -408,52 +408,54 @@ exports.moves = {
 var onmls = require('onml/lib/stringify'),
     assets = require('./assets');
 
-var moves = assets.moves;
-var root = document.getElementById('content');
-root.innerHTML = onmls(assets.template);
-    
-katex.render('(x + 2 \\times y)^3 - x^3 = 6 \\times (x + y)^2 \\times y + 2 \\times y^3', document.getElementById('formula'));
+global.CUBO = function CUBO () {
+    var moves = assets.moves;
+    var root = document.getElementById('content');
+    root.innerHTML = onmls(assets.template);
+        
+    katex.render('(x + 2 \\times y)^3 - x^3 = 6 \\times (x + y)^2 \\times y + 2 \\times y^3', document.getElementById('formula'));
 
-Object.keys(moves).forEach(function (e) {
-    var el = document.getElementById('_' + e);
-    el.addEventListener('click', (function (name) {
-        var dir = 1;
-        var scale = 0;
-        var origin = el.getAttribute('transform').split(/[(),]/);
-        var delta = moves[name];
-        var inter = setInterval(function () {
-            if (dir === 1) {
-                if (scale < 0.9) {
-                    scale += 0.1;
+    Object.keys(moves).forEach(function (e) {
+        var el = document.getElementById('_' + e);
+        el.addEventListener('click', (function (name) {
+            var dir = 1;
+            var scale = 0;
+            var origin = el.getAttribute('transform').split(/[(),]/);
+            var delta = moves[name];
+            var inter = setInterval(function () {
+                if (dir === 1) {
+                    if (scale < 0.9) {
+                        scale += 0.1;
+                    } else {
+                        scale = 1;
+                    }
                 } else {
-                    scale = 1;
+                    if (scale > 0.1) {
+                        scale -= 0.1;
+                    } else {
+                        scale = 0;
+                    }
                 }
-            } else {
-                if (scale > 0.1) {
-                    scale -= 0.1;
+                // el.setAttribute('transform', 'translate(' + origin[1] + ',' + origin[2] + ')');
+                el.setAttribute(
+                    'transform', 'translate(' +
+                    (Number(origin[1]) - scale * delta[0]) +
+                    ',' +
+                    (Number(origin[2]) - scale * delta[1]) +
+                    ')'
+                );
+            }, 100);
+            return function () {
+                console.log(scale);
+                if (dir === 0) {
+                    dir = 1;
                 } else {
-                    scale = 0;
+                    dir = 0;
                 }
-            }
-            // el.setAttribute('transform', 'translate(' + origin[1] + ',' + origin[2] + ')');
-            el.setAttribute(
-                'transform', 'translate(' +
-                (Number(origin[1]) - scale * delta[0]) +
-                ',' +
-                (Number(origin[2]) - scale * delta[1]) +
-                ')'
-            );
-        }, 100);
-        return function () {
-            console.log(scale);
-            if (dir === 0) {
-                dir = 1;
-            } else {
-                dir = 0;
-            }
-        };
-    })(e));
-});
+            };
+        })(e));
+    });
+};
 
 },{"./assets":1,"onml/lib/stringify":3}],3:[function(require,module,exports){
 'use strict';
