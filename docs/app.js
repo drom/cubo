@@ -408,7 +408,7 @@ exports.moves = {
 var onmls = require('onml/lib/stringify'),
     assets = require('./assets');
 
-global.CUBO = function CUBO () {
+window.CUBO = function CUBO () {
     var moves = assets.moves;
     var root = document.getElementById('content');
     root.innerHTML = onmls(assets.template);
